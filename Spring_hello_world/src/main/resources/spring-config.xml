@@ -7,6 +7,6 @@
     <context:annotation-config/>
     <context:component-scan base-package="com.dm.education"/>
 
-    <bean id="provider" class="com.dm.education.HelloWorldMessageProvider"/>
-    <bean id="renderer" class="com.dm.education.StandardOutputMessageRenderer" p:messageProvider-ref="provider"/>
+    <bean id="provider" class="com.dm.education.hello_world.HelloWorldMessageProvider"/>
+    <bean id="renderer" class="com.dm.education.hello_world.StandardOutputMessageRenderer" p:messageProvider-ref="provider"/>
 </beans>

@@ -1,4 +1,4 @@
-package com.dm.education;
+package com.dm.education.hello_world;
 
 public class HelloWorldMessageProvider implements MessageProvider{
 

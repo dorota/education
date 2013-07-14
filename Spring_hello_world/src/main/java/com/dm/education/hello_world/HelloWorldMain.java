@@ -1,4 +1,4 @@
-package com.dm.education;
+package com.dm.education.hello_world;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
