@@ -1,6 +1,7 @@
 package dorota.education;
 
 import java.io.FileNotFoundException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,11 +18,11 @@ public class DelinquentAccountService implements IDelinquentAccountService {
     }
 
     @Override
-    public List<Account> findDelinquent() throws FileNotFoundException {
+    public List<Account> findDelinquent() throws FileNotFoundException, ParseException {
         List<Account> allAccounts = accountDao.getAllAccounts();
         List<Account> delinquentAccounts = new ArrayList<Account>();
         for(Account account:allAccounts) {
-            if(new Date().getTime() - account.getLastPaidOn().getTime() > 30 * 24 * 60 * 60 * 1000) {
+            if((new Date().getTime() > account.getDueDate().getTime())) {
                 delinquentAccounts.add(account);
             }
         }

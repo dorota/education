@@ -1,9 +1,13 @@
 package dorota.education;
 
+import javax.swing.text.DateFormatter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -20,7 +24,7 @@ public class CSVAccountDao implements IAccountDao {
     }
 
     @Override
-    public List<Account> getAllAccounts() throws FileNotFoundException {
+    public List<Account> getAllAccounts() throws FileNotFoundException, ParseException {
         Scanner fileScanner = new Scanner(new FileInputStream(accountsSource));
         List<Account> allAccounts = new ArrayList<Account>();
         while (fileScanner.hasNext()) {
@@ -28,7 +32,8 @@ public class CSVAccountDao implements IAccountDao {
             String[] accountDescParts = accountDesc.split(" ");
             String accountName = accountDescParts[0];
             int balance = Integer.valueOf(accountDescParts[1]);
-            Date paidDate = Date.valueOf(accountDescParts[2]);
+            DateFormat formatter = new SimpleDateFormat("MM/dd/yy");
+            java.util.Date paidDate = formatter.parse(accountDescParts[2]);
             allAccounts.add(new Account(accountName, BigDecimal.valueOf(balance), paidDate));
         }
         return allAccounts;

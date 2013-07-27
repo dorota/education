@@ -7,7 +7,7 @@
     <context:component-scan base-package="dorota.education"/>
 
     <bean id="csvAccountDao" name="csvAccountDao" class="dorota.education.CSVAccountDao">
-        <property name="accountsSource" value="accounts.csv"/>
+        <property name="accountsSource" value="C:\Edukacja\GitHubProjects\education\CSV_Example\src\main\resources\accounts.csv"/>
     </bean>
 
     <bean id="DelinquentAccountService" name="DelinquentAccountService" class="dorota.education.DelinquentAccountService">

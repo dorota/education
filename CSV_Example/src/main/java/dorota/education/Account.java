@@ -6,12 +6,12 @@ import java.util.Date;
 public class Account {
     private String accountNumber;
     private BigDecimal balance;
-    private Date lastPaidOn;
+    private Date dueDate;
 
-    public Account(String accountNumber, BigDecimal balance, Date lastPaidOn) {
+    public Account(String accountNumber, BigDecimal balance, Date dueDate) {
         this.accountNumber = accountNumber;
         this.balance = balance;
-        this.lastPaidOn = lastPaidOn;
+        this.dueDate = dueDate;
     }
 
     public String getAccountNumber() {
@@ -30,11 +30,11 @@ public class Account {
         this.balance = balance;
     }
 
-    public Date getLastPaidOn() {
-        return lastPaidOn;
+    public Date getDueDate() {
+        return dueDate;
     }
 
-    public void setLastPaidOn(Date lastPaidOn) {
-        this.lastPaidOn = lastPaidOn;
+    public void setDueDate(Date dueDate) {
+        this.dueDate = dueDate;
     }
 }
